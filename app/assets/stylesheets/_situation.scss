@@ -1,0 +1,95 @@
+.situation-wrapper{
+  height: 100vh;
+  width: 100vw;
+  background-color: snow;
+  position: relative;
+
+  .situation-header{
+
+    &__menu{
+      height: 50px;
+      width: 100vw;
+      background-color: gray;
+      margin-top:100px;
+      position: sticky;
+      top: 0px;
+      z-index: 1;
+      &__contents{
+
+        position: absolute;
+        left: 200px;
+        font-size:20px;
+        display: flex;
+        align-items:center;
+        margin-top:10px;
+
+        .link_btn{
+          text-decoration: none;
+          font-size:20px;
+          color:lightgray;
+        }
+
+        &__home{
+
+        }
+
+        &__recentsituation{
+          margin-left: 20px;
+          border-bottom:1px solid black;
+        }
+
+        &__configuration{
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+
+  .situation-main{
+
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    &__history{
+      height: 300px;
+      width: calc(100vw - 300px);
+      border-bottom:1px solid lightgray;
+
+      position: relative;
+
+      &__headline{
+        font-weight: bold;
+        position: absolute;
+        top:50px;
+        left:40px;
+      }
+
+      &__username{
+        width: 100px;
+        height: 100px;
+        margin-top: 30px;
+        text-align: center;
+        background-color: lightpink;
+        border-radius: 50%;
+        line-height: 100px;
+      }
+
+      &__time{
+        margin-top: 20px;
+        font-weight: 100px;
+        position: absolute;
+        left: 10px;
+      }
+
+    }
+
+
+
+
+  }
+
+
+
+}

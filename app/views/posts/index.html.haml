@@ -1,0 +1,34 @@
+.wrapper
+  .header
+    .header__menu
+      .header__menu__contents
+        .header__menu__contents__home
+          = link_to 'ホーム', root_path , class:"link_btn"
+        .header__menu__contents__recentsituation
+          = link_to '近況', posts_situation_path , class:"link_btn"
+        .header__menu__contents__configuration
+          = link_to '設定', "#" , class:"link_btn"
+  
+  .main-field
+    .main-field__image
+      .main-field__image__image-erea
+        -# = image_tag "animal1", alt: "test" , class: "thumbnail-image"
+        -# = image_tag "animal2", alt: "test" , class: "thumbnail-image"
+        -# = image_tag "animal3", alt: "test" , class: "thumbnail-image"
+        -# = image_tag "animal4", alt: "test" , class: "thumbnail-image"
+        -# = image_tag "animal5", alt: "test" , class: "thumbnail-image"
+
+        -# = image_tag "animal6", alt: "test" , class: "thumbnail-image"
+        -# = image_tag "animal7", alt: "test" , class: "thumbnail-image"
+      
+      .main-field-btn
+        .main-field-btn__foward-btn
+          = link_to '前へ', "#" , class:"link_btn"
+        .main-field-btn__next-btn
+          = link_to '次へ', "#" , class:"link_btn"
+  
+  .footer
+    .footer__form
+      = form_with model: @post, local: true do |f|
+        = f.file_field :image, class:'image-form'
+        = f.submit '追加する', class:'image-btn'
