@@ -29,6 +29,9 @@
   
   .footer
     .footer__form
-      = form_with model: @post, local: true do |f|
-        = f.file_field :image, class:'image-form'
-        = f.submit '追加する', class:'image-btn'
+      = form_with model: @post, url:posts_path, method: :post, local: true do |form|
+        = form.file_field :image, class:'image-form'
+        = form.submit '追加する', class:'image-btn'
+      -# = form_for @post do |f|
+      -#   = f.file_field :image
+      -#   = f.submit 'アップロードする'
