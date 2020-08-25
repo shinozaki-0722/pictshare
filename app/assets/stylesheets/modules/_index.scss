@@ -102,6 +102,51 @@
         
       }
     }
+
+    .image-modal-wrapper{
+      //モーダル表示をしている時だけバックグラウンド全体を薄暗くする
+      position: fixed;
+      top: 0;//以下４行で画面全体とする
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);//バックグラウンドを薄暗くする
+      z-index: 100;
+      display: none;
+
+    }
+
+    .image-modal{
+      position: absolute;
+      top: 3%;
+      left: 23%;
+      @include -height-width(700px,800px);
+      background-color:#e6ecf0;
+      border-radius: 10px;
+    }
+
+    .bigimg {
+      // width: 100%;
+      @include vertical-and-horizontal-center();
+      // top: 40px;
+      left: 0px;
+      right: 0;
+      margin:50px 0 0 0;
+
+      img{
+        max-height: 540px;
+        max-width: 540px;
+        // margin: auto;
+      }
+    }
+
+    .fa-times{
+      position: absolute;
+      top:10px;
+      right:10px;
+      cursor: pointer;
+    }
+
   }
 
   .footer{

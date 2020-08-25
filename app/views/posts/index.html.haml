@@ -12,26 +12,25 @@
   .main-field
     .main-field__image
       .main-field__image__image-erea
-        -# = image_tag "animal1", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal2", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal3", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal4", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal5", alt: "test" , class: "thumbnail-image"
+        /@postにはposts_contorollerのindexアクションでpostsテーブルの中身が全て代入してある。
+        /それをeachで要素数分繰り返し処理する。
+        - @post.each do |post|
+          = image_tag post.image.url, alt: "animal" , class: "thumbnail-image", id: "change-photo"
+      .image-modal-wrapper
+        .image-modal
+          /モーダルにfontawesameでバツのアイコン表示
+          %i.fa.fa-2x.fa-times
+          .bigimg
+            %img{:alt => "", :src => ""}/
 
-        -# = image_tag "animal6", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal7", alt: "test" , class: "thumbnail-image"
-      
-      .main-field-btn
-        .main-field-btn__foward-btn
-          = link_to '前へ', "#" , class:"link_btn"
-        .main-field-btn__next-btn
-          = link_to '次へ', "#" , class:"link_btn"
+      -# .main-field-btn
+      -#   .main-field-btn__foward-btn
+      -#     = link_to '前へ', "#" , class:"link_btn"
+      -#   .main-field-btn__next-btn
+      -#     = link_to '次へ', "#" , class:"link_btn"
   
   .footer
     .footer__form
       = form_with model: @post, url:posts_path, method: :post, local: true do |form|
         = form.file_field :image, class:'image-form'
         = form.submit '追加する', class:'image-btn'
-      -# = form_for @post do |f|
-      -#   = f.file_field :image
-      -#   = f.submit 'アップロードする'
