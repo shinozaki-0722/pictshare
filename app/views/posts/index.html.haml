@@ -3,11 +3,24 @@
     .header__menu
       .header__menu__contents
         .header__menu__contents__home
-          = link_to 'ホーム', root_path , class:"link_btn"
+          //turbolinksを切らないと、「ホーム」を押下した際にモーダルが表示されない
+          = link_to 'ホーム', root_path , class:"link_btn", "data-turbolinks": false
         .header__menu__contents__recentsituation
           = link_to '近況', posts_situation_path , class:"link_btn"
         .header__menu__contents__configuration
           = link_to '設定', "#" , class:"link_btn"
+      - if user_signed_in?
+        .header__menu__contents__username
+          %p こんにちは
+          %span #{current_user.name}
+          %p さん
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete, id:"logout_btn"
+      - else
+        .header__menu__contents__username
+          %p こんにちは
+          %span ゲスト
+          %p さん
+        = link_to 'ログイン', new_user_session_path, method: :GET, id:"login_btn"
   
   .main-field
     .main-field__image
