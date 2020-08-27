@@ -29,8 +29,10 @@
         /@postにはposts_contorollerのindexアクションでpostsテーブルの中身が全て代入してある。
         /それをeachで要素数分繰り返し処理する。
         - @post.each do |post|
-          = image_tag post.image.url, alt: "animal" , class: "thumbnail-image", id: "change-photo"
-          = link_to '削除', post_path(post.id), method: :delete, class: "delete_btn"
+          //ログインしていて、なおかつ現在のログインユーザーidと画像投稿時に紐づけたidが一致して入れば画像の表示および削除が可能
+          - if user_signed_in? && current_user.id == post.user_id
+            = image_tag post.image.url, alt: "animal" , class: "thumbnail-image", id: "change-photo"
+            = link_to '削除', post_path(post.id), method: :delete, class: "delete_btn"
 
       .image-modal-wrapper
         .image-modal

@@ -8,6 +8,7 @@
 
     position: sticky;
     top: 0px;
+    z-index: 1;
 
     &__menu{
       height: 50px;
@@ -58,13 +59,9 @@
         text-decoration: none;
         margin:0 20px 0 0;
         font-size:18px;
+        color:black;
       }
 
-      // #logout_btn{
-      //   @include vertical-and-horizontal-center();
-      //   text-decoration: none;
-      //   margin:0 20px 0 0;
-      // }
     }
   }
 
@@ -78,6 +75,7 @@
       margin-top: 30px;
 
       &__image-erea{
+        position: absolute;
         .thumbnail-image{
           //サムネイルのサイズと画像の比率を保ったままリサイズする
           object-fit: cover;
@@ -88,6 +86,12 @@
           margin-right:25px;
           margin-bottom: 15px;
           cursor: pointer;
+        }
+        .delete_btn{
+          position: relative;
+          top:2px;
+          left:-65px;
+          text-decoration: none;
         }
       }
 
