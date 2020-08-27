@@ -1,0 +1,40 @@
+.top-wrapper{
+  overflow:hidden;
+  .top-header{
+    @include -height-width(60px, 100%);
+    @include vertical-and-horizontal-center();//子要素をタテヨコ中央に配置
+    &__username{
+      display: flex;
+      color:white;
+      margin:0 50px 0 auto;//タテヨコ中央配置したものを右に寄せる
+      #registrations_btn{
+        text-decoration: none;
+        color:white;
+      }
+      span{
+        color:red;
+      }
+    }
+  }
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  @include -height-width(100vh, 100vw);
+  background-color:black;
+  .main-visual{
+    background-image: image-url('top_img.jpg');
+    width: 100vw;
+    height:700px;
+    h1{
+      position: relative;
+      top: 40%;
+      left:3%;
+      font-size:42px;
+      font-weight: bold;
+    }
+  }
+  .top-footer{
+    #registrations_btn{
+      text-decoration: none;
+      color:white;
+    }
+  }
+}

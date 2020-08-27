@@ -1,49 +1,24 @@
-.wrapper
-  .header
-    .header__menu
-      .header__menu__contents
-        .header__menu__contents__home
-          //turbolinksを切らないと、「ホーム」を押下した際にモーダルが表示されない
-          = link_to 'ホーム', root_path , class:"link_btn", "data-turbolinks": false
-        .header__menu__contents__recentsituation
-          = link_to '近況', posts_situation_path , class:"link_btn"
-        .header__menu__contents__configuration
-          = link_to '設定', "#" , class:"link_btn"
-      - if user_signed_in?
-        .header__menu__contents__username
-          %p こんにちは
-          %span #{current_user.name}
-          %p さん
-        = link_to 'ログアウト', destroy_user_session_path, method: :delete, id:"logout_btn"
-      - else
-        .header__menu__contents__username
-          %p こんにちは
-          %span ゲスト
-          %p さん
-        = link_to 'ログイン', new_user_session_path, method: :GET, id:"login_btn"
-  
-  .main-field
-    .main-field__image
-      .main-field__image__image-erea
-        /@postにはposts_contorollerのindexアクションでpostsテーブルの中身が全て代入してある。
-        /それをeachで要素数分繰り返し処理する。
-        - @post.each do |post|
-          = image_tag post.image.url, alt: "animal" , class: "thumbnail-image", id: "change-photo"
-      .image-modal-wrapper
-        .image-modal
-          /モーダルにfontawesameでバツのアイコン表示
-          %i.fa.fa-2x.fa-times
-          .bigimg
-            %img{:alt => "", :src => ""}/
+.top-wrapper
+  .top-header
+    - if user_signed_in?
+      .top-header__username
+        %p こんにちは&nbsp;
+        %span #{current_user.name}
+        %p さん&nbsp;&nbsp;&nbsp;
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete, id:"registrations_btn"
+    - else
+      .top-header__username
+        %p こんにちは
+        %span ゲスト
+        %p さん
 
-      -# .main-field-btn
-      -#   .main-field-btn__foward-btn
-      -#     = link_to '前へ', "#" , class:"link_btn"
-      -#   .main-field-btn__next-btn
-      -#     = link_to '次へ', "#" , class:"link_btn"
-  
-  .footer
-    .footer__form
-      = form_with model: @post, url:posts_path, method: :post, local: true do |form|
-        = form.file_field :image, class:'image-form'
-        = form.submit '追加する', class:'image-btn'
+  .main-visual
+    %h1 思い出の写真を共有しよう
+
+  .top-footer
+    - if user_signed_in?  
+      &nbsp;&nbsp;
+      = link_to 'ホーム画面へ', post_path(current_user.id), method: :get, id:"registrations_btn"
+    - else
+      = link_to '新規登録',  new_user_registration_path, method: :GET, id:"registrations_btn"
+      = link_to 'ログイン',  new_user_session_path, method: :GET, id:"registrations_btn"

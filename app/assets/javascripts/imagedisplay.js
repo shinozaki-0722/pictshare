@@ -10,5 +10,4 @@ $(function(){
     $('.image-modal-wrapper').fadeOut();
   });
 
-
 });
