@@ -1,5 +1,9 @@
 @import "reset";
+@import "modules/mixin";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "contents";
-@import "situation"
+@import "modules/index";
+@import "modules/situation";
+@import "modules/login";
+@import "modules/toppage";
+@import "modules/registration";

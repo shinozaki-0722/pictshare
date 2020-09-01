@@ -1,0 +1,212 @@
+.wrapper{
+  height: 100vh;
+  width: 100vw;
+  background-color:#ffffff;
+  position: relative;
+
+  .head{
+    &__children{
+      @include vertical-and-horizontal-center();
+      .logo_btn{
+        object-fit: cover;
+      }
+    }
+  }
+
+  .header{
+
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+
+    &__menu{
+      height: 50px;
+      width: calc(100vw - 20px);
+      background: linear-gradient(#59ebbf, #ffffff);
+      display: flex;
+
+      &__contents{
+
+        position: absolute;
+        left: 200px;
+        font-size:20px;
+        display: flex;
+        align-items:center;
+        margin-top:10px;
+
+        .link_btn{
+          text-decoration: none;
+          font-size:20px;
+          color:black;
+        }
+
+        &__home{
+          border-bottom:1px solid black;
+        }
+
+        &__recentsituation{
+          margin-left: 20px;
+        }
+
+        &__configuration{
+          margin-left: 20px;
+        }
+      }
+
+      .header__menu__contents__username{
+        font-size: 20px;
+        @include vertical-and-horizontal-center();
+        margin:0 30px 0 auto;//右寄せ
+        span{
+          color:red;
+        }
+      }
+
+      #login_btn,#logout_btn{
+        @include vertical-and-horizontal-center();
+        text-decoration: none;
+        margin:0 20px 0 0;
+        font-size:18px;
+        color:black;
+      }
+
+    }
+  }
+
+  .main-field{
+    display: flex;
+    justify-content: space-around;
+
+    &__image{
+      height: calc(100vh - 100px);
+      width: calc(100vw - 250px);
+      margin-top: 30px;
+
+      &__image-erea{
+        position: absolute;
+        .thumbnail-image{
+          //サムネイルのサイズと画像の比率を保ったままリサイズする
+          object-fit: cover;
+          height: 250px;
+          width: 250px;
+          border: 1px solid #ccc;
+          padding: 5px;
+          margin-top: 15px;
+          margin-right:25px;
+          margin-bottom: 15px;
+          cursor: pointer;
+        }
+        #delete_btn{
+          position: relative;
+          top:140px;
+          left:-65px;
+          text-decoration: none;
+        }
+      }
+
+      .main-field-btn{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: 550px;
+
+        &__foward-btn{
+          width: 150px;
+          height: 20px;
+          background-color: rgb(0, 81, 255);
+          padding:10px;
+          margin: 20px;
+          color:white;
+          border-radius: 10px;
+          font-weight: bold;
+        }
+    
+        &__next-btn{
+          width: 150px;
+          height: 20px;
+          background-color: rgb(0, 81, 255);
+          padding:10px;
+          margin: 20px;
+          color:white;
+          border-radius: 10px;
+          font-weight: bold;
+        }
+
+        .link_btn{
+          text-decoration: none;
+          font-size:16px;
+          color: white;
+        }
+      }
+    }
+
+    .image-modal-wrapper{
+      //モーダル表示をしている時だけバックグラウンド全体を薄暗くする
+      position: fixed;
+      top: 0;//以下４行で画面全体とする
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);//バックグラウンドを薄暗くする
+      z-index: 100;
+      display: none;
+    }
+
+    .image-modal{
+      position: absolute;
+      top: 3%;
+      left: 27%;
+      @include -height-width(800px,800px);
+      background-color:#e6ecf0;
+      border-radius: 10px;
+    }
+
+    .bigimg {
+      @include vertical-and-horizontal-center();
+      left: 0px;
+      right: 0;
+      margin:50px 0 0 0;
+
+      img{
+        max-height: 640px;
+        max-width: 640px;
+      }
+    }
+
+    .fa-times{
+      position: absolute;
+      top:10px;
+      right:10px;
+      cursor: pointer;
+    }
+
+  }
+
+  .footer{
+    height: 150px;
+    width: 100vw;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    &__form{
+      margin-top:50px;
+    }
+
+    .image-btn{
+      color:blue;
+    }
+  }
+
+  .pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .page{
+      // margin:0 30px 0 auto;//右寄せ
+    }
+
+
+  }
+}
