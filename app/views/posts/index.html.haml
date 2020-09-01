@@ -1,34 +1,24 @@
-.wrapper
-  .header
-    .header__menu
-      .header__menu__contents
-        .header__menu__contents__home
-          = link_to 'ホーム', root_path , class:"link_btn"
-        .header__menu__contents__recentsituation
-          = link_to '近況', posts_situation_path , class:"link_btn"
-        .header__menu__contents__configuration
-          = link_to '設定', "#" , class:"link_btn"
-  
-  .main-field
-    .main-field__image
-      .main-field__image__image-erea
-        -# = image_tag "animal1", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal2", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal3", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal4", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal5", alt: "test" , class: "thumbnail-image"
+.top-wrapper
+  .top-header
+    - if user_signed_in?
+      .top-header__username
+        %p こんにちは&nbsp;
+        %span #{current_user.name}
+        %p さん&nbsp;&nbsp;&nbsp;
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete, id:"registrations_btn"
+    - else
+      .top-header__username
+        %p こんにちは&nbsp;
+        %span ゲスト
+        %p さん&nbsp;
 
-        -# = image_tag "animal6", alt: "test" , class: "thumbnail-image"
-        -# = image_tag "animal7", alt: "test" , class: "thumbnail-image"
-      
-      .main-field-btn
-        .main-field-btn__foward-btn
-          = link_to '前へ', "#" , class:"link_btn"
-        .main-field-btn__next-btn
-          = link_to '次へ', "#" , class:"link_btn"
-  
-  .footer
-    .footer__form
-      = form_with model: @post, local: true do |f|
-        = f.file_field :image, class:'image-form'
-        = f.submit '追加する', class:'image-btn'
+  .main-visual
+    %h1 思い出の写真を共有しよう
+
+  .top-footer
+    - if user_signed_in?  
+      &nbsp;&nbsp;
+      = link_to 'ホーム画面へ', post_path(current_user.id), method: :get, id:"registrations_btn"
+    - else
+      = link_to '新規登録',  new_user_registration_path, method: :GET, id:"registrations_btn"
+      = link_to 'ログイン',  new_user_session_path, method: :GET, id:"registrations_btn"

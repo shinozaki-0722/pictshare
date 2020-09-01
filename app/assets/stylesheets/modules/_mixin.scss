@@ -1,0 +1,14 @@
+//要素の縦横サイズ
+//@include -height-width()
+@mixin -height-width($height,$width) {
+  height: $height;
+  width: $width;
+}
+
+//子要素を縦横中央に配置する
+//@include vertical-and-horizontal-center()
+@mixin vertical-and-horizontal-center(){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

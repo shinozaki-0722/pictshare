@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "posts#index"
+  devise_for :users
+  root to: "posts#index"
   get "posts/situation"
-  resources :posts
+  resources :posts, only: [:create, :destroy, :new, :show, :index]
 end
