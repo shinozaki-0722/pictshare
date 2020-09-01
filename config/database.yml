@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: pictshare_production
-  username: pictshare
-  password: <%= ENV['PICTSHARE_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
