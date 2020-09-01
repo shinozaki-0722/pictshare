@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
 
   def index
-    @post = Post.all
+    @post = Post.all.page(params[:page])
   end
 
   def show
-    @post = Post.all
+    @post = Post.all.page(params[:page]).per(10)
   end
 
   def new
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(current_user.id)
     else
-      # render :new
+      redirect_to post_path(current_user.id)
     end
   end
 

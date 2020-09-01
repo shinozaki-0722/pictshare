@@ -4,7 +4,7 @@
     .situation-header__menu
       .situation-header__menu__contents
         .situation-header__menu__contents__home
-          = link_to 'ホーム', root_path , class:"link_btn"
+          = link_to 'ホーム', post_path(current_user.id) , class:"link_btn"
         .situation-header__menu__contents__recentsituation
           = link_to '近況', posts_situation_path , class:"link_btn"
         .situation-header__menu__contents__configuration

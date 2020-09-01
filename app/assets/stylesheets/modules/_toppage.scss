@@ -3,6 +3,7 @@
   .top-header{
     @include -height-width(60px, 100%);
     @include vertical-and-horizontal-center();//子要素をタテヨコ中央に配置
+    font-size:20px;
     &__username{
       display: flex;
       color:white;
@@ -31,10 +32,14 @@
       font-weight: bold;
     }
   }
+
   .top-footer{
+    font-size:20px;
+    margin:5px 0 0 0;
     #registrations_btn{
       text-decoration: none;
       color:white;
+      margin-left:10px;
     }
   }
 }

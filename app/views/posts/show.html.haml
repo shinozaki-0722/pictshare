@@ -1,10 +1,13 @@
 .wrapper
-  .header
+  .head
+    .head__children
+      = link_to root_path do
+        = image_tag 'hplogo.png',:size => '160x100',class:"logo_btn"
     .header__menu
       .header__menu__contents
         .header__menu__contents__home
           //turbolinksを切らないと、「ホーム」を押下した際にモーダルが表示されない
-          = link_to 'ホーム', post_path(current_user.id) , class:"link_btn", "data-turbolinks": false
+          = link_to 'ホーム', post_path(current_user.id) , class:"link_btn"
         .header__menu__contents__recentsituation
           = link_to '近況', posts_situation_path , class:"link_btn"
         .header__menu__contents__configuration
@@ -32,7 +35,7 @@
           //ログインしていて、なおかつ現在のログインユーザーidと画像投稿時に紐づけたidが一致して入れば画像の表示および削除が可能
           - if user_signed_in? && current_user.id == post.user_id
             = image_tag post.image.url, alt: "animal" , class: "thumbnail-image", id: "change-photo"
-            = link_to '削除', post_path(post.id), method: :delete, class: "delete_btn"
+            = link_to '削除', post_path(post.id), method: :delete, id: "delete_btn"
 
       .image-modal-wrapper
         .image-modal
@@ -40,13 +43,8 @@
           %i.fa.fa-2x.fa-times
           .bigimg
             %img{:alt => "", :src => ""}
-            
-
-      -# .main-field-btn
-      -#   .main-field-btn__foward-btn
-      -#     = link_to '前へ', "#" , class:"link_btn"
-      -#   .main-field-btn__next-btn
-      -#     = link_to '次へ', "#" , class:"link_btn"
+  .pagination-wrapper 
+    = paginate @post, class: 'page'
   
   .footer
     .footer__form

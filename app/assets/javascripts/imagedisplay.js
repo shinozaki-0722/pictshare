@@ -1,8 +1,7 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('.thumbnail-image').click(function(){
     var imgSrc = $(this).attr('src');
     $('.bigimg').children().attr('src', imgSrc);
-    console.log(imgSrc);
     $('.image-modal-wrapper').fadeIn();
   });
 

@@ -1,8 +1,17 @@
 .wrapper{
   height: 100vh;
   width: 100vw;
-  background-color: snow;
+  background-color:#ffffff;
   position: relative;
+
+  .head{
+    &__children{
+      @include vertical-and-horizontal-center();
+      .logo_btn{
+        object-fit: cover;
+      }
+    }
+  }
 
   .header{
 
@@ -13,8 +22,7 @@
     &__menu{
       height: 50px;
       width: calc(100vw - 20px);
-      background-color: gray;
-      margin-top:100px;
+      background: linear-gradient(#59ebbf, #ffffff);
       display: flex;
 
       &__contents{
@@ -29,7 +37,7 @@
         .link_btn{
           text-decoration: none;
           font-size:20px;
-          color:lightgray;
+          color:black;
         }
 
         &__home{
@@ -71,7 +79,7 @@
 
     &__image{
       height: calc(100vh - 100px);
-      width: calc(100vw - 400px);
+      width: calc(100vw - 250px);
       margin-top: 30px;
 
       &__image-erea{
@@ -79,17 +87,18 @@
         .thumbnail-image{
           //サムネイルのサイズと画像の比率を保ったままリサイズする
           object-fit: cover;
-          height: 200px;
-          width: 200px;
+          height: 250px;
+          width: 250px;
           border: 1px solid #ccc;
           padding: 5px;
+          margin-top: 15px;
           margin-right:25px;
           margin-bottom: 15px;
           cursor: pointer;
         }
-        .delete_btn{
+        #delete_btn{
           position: relative;
-          top:2px;
+          top:140px;
           left:-65px;
           text-decoration: none;
         }
@@ -128,7 +137,6 @@
           font-size:16px;
           color: white;
         }
-        
       }
     }
 
@@ -142,30 +150,26 @@
       background-color: rgba(0, 0, 0, 0.6);//バックグラウンドを薄暗くする
       z-index: 100;
       display: none;
-
     }
 
     .image-modal{
       position: absolute;
       top: 3%;
-      left: 23%;
-      @include -height-width(700px,800px);
+      left: 27%;
+      @include -height-width(800px,800px);
       background-color:#e6ecf0;
       border-radius: 10px;
     }
 
     .bigimg {
-      // width: 100%;
       @include vertical-and-horizontal-center();
-      // top: 40px;
       left: 0px;
       right: 0;
       margin:50px 0 0 0;
 
       img{
-        max-height: 540px;
-        max-width: 540px;
-        // margin: auto;
+        max-height: 640px;
+        max-width: 640px;
       }
     }
 
@@ -193,5 +197,16 @@
     .image-btn{
       color:blue;
     }
+  }
+
+  .pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .page{
+      // margin:0 30px 0 auto;//右寄せ
+    }
+
+
   }
 }
