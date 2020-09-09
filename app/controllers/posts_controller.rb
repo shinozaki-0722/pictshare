@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.all.page(params[:page]).per(10)
+    @post = Post.all.page(params[:page]).per(11)
   end
 
   def new

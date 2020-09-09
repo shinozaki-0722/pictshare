@@ -6,12 +6,11 @@
     .header__menu
       .header__menu__contents
         .header__menu__contents__home
-          //turbolinksを切らないと、「ホーム」を押下した際にモーダルが表示されない
           = link_to 'ホーム', post_path(current_user.id) , class:"link_btn"
-        .header__menu__contents__recentsituation
-          = link_to '近況', posts_situation_path , class:"link_btn"
-        .header__menu__contents__configuration
-          = link_to '設定', "#" , class:"link_btn"
+        -# .header__menu__contents__recentsituation
+        -#   = link_to '近況', posts_situation_path , class:"link_btn"
+        -# .header__menu__contents__configuration
+        -#   = link_to '設定', "#" , class:"link_btn"
       - if user_signed_in?
         .header__menu__contents__username
           %p こんにちは&nbsp;
